@@ -12,22 +12,23 @@ class QuestionController extends AbstractController
 {
     /**
      * @return Response
-     * @Route("/")
+     * @Route("/",name="app_hompage")
      */
     public function homepage()
     {
-        return new Response("what a reposene from response");
+        return  $this->render('question/homepage.html.twig');
     }
 
     /**
-     * @Route("questions/{slug}")
+     * @Route("questions/{slug}",name="app_question_show")
      */
     public function show($slug)
     {
         $ans = ['fak','fak'];
+
         return $this->render('question/show.html.twig',[
             'question' => ucwords(str_replace('-',' ', $slug)),
-            'ans' => $ans
+            'answers' => ['fak','fak']
         ]);
         //return new Response(sprintf('anotation test "%s"', ucwords(str_replace('-',' ', $slug))));
     }
