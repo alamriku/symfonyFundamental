@@ -7,6 +7,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class QuestionController extends AbstractController
 {
@@ -14,9 +15,11 @@ class QuestionController extends AbstractController
      * @return Response
      * @Route("/",name="app_hompage")
      */
-    public function homepage()
+    public function homepage(Environment $twigEnvironment)
     {
-        return  $this->render('question/homepage.html.twig');
+//        $html = $twigEnvironment->render('question/homepage.html.twig');
+//        return new Response($html);
+       return  $this->render('question/homepage.html.twig');
     }
 
     /**
